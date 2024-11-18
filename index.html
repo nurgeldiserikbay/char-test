@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Iframe Test</title>
+
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        height: 100vh;
+      }
+
+      .iframe-wrap {
+        display: block;
+        width: 450px;
+        height: 680px;
+      }
+    </style>
+  </head>
+  <body>
+    <button id="iframe">iframe</button>
+    <div class="iframe-wrap"></div>
+  </body>
+
+  <script src="./script.js"></script>
+  <script>
+    const langs = {
+      ru: {
+        title: 'AI HR Ассистент',
+        description: 'Задайте вопрос и получите профессиональную консультацию!',
+        button: 'Задать вопрос',
+      },
+    }
+
+    const isProd = true
+
+    const optionsExample = {
+      id: '', // unique id for chat, optional
+      idDate: '', // unique id's last uset time
+      langs: langs,
+      lang: 'ru',
+      iframeSrc: isProd ? 'https://qicbot.crocos.kz/' : 'http://192.168.56.1:5173/', // required
+      width: 500,
+      height: 620,
+    }
+
+    const qicChat = new QicChat(optionsExample)
+    qicChat.initGlobChat()
+  </script>
+</html>
